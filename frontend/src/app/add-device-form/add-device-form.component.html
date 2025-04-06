@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Device Manager</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="!isDesktop" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <!-- Colonna per il form -->
+      <ion-col size="12" size-lg="6" class="ion-margin-auto">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Ajouter un nouveau device</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form (submit)="addDevice()">
+              <ion-item>
+                <ion-label position="stacked">Nom</ion-label>
+                <ion-input [(ngModel)]="deviceName" name="deviceName" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Latitude</ion-label>
+                <ion-input [(ngModel)]="latitude" name="latitude" type="number" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Longitude</ion-label>
+                <ion-input [(ngModel)]="longitude" name="longitude" type="number" required></ion-input>
+              </ion-item>
+              <ion-button expand="block" type="submit">Ajoutez</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-lg="6" class="ion-margin-auto">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Trouver un device</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="stacked">Entrez le nom de l’appareil</ion-label>
+              <ion-input [(ngModel)]="nom" name="nom"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Temps lumière (seconds)</ion-label>
+              <ion-input [(ngModel)]="executionTime"
+              type="number"
+              min="1" required name="executionTime"></ion-input>
+            </ion-item>
+            <ion-button expand="block" (click)="findDevice()">Find Me</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-margin-auto">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Changement de l’intervalle de transmission</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="stacked">Entrez le nom de l’appareil</ion-label>
+              <ion-input [(ngModel)]="device" name="device"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Intervalle de transmission (minutes)</ion-label>
+              <ion-input [(ngModel)]="interval"
+              name="interval"
+              type="number"
+              min="1" required></ion-input>
+            </ion-item>
+            <ion-button expand="block" (click)="changerInterval()">Soumettre</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

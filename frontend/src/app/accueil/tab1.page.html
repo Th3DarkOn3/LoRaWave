@@ -1,0 +1,54 @@
+<ion-header class="header">
+  <ion-toolbar class="ion-justify-content-center">
+    <ion-buttons slot="start">
+      <ion-img src="../../assets/icon/favicon.png" class="logo"></ion-img>
+    </ion-buttons>
+    <ion-title>LoRaWave</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="full-width">
+  <ion-row>
+    <ion-col size="12" class="stretch-col">
+      <ion-list>
+        <ion-item *ngFor="let device of devices">
+          <ion-label>
+            <h2>{{ device.Name }}</h2>
+            <p>Latitude: {{ device.latitude }}, Longitude: {{ device.longitude }}</p>
+          </ion-label>
+          <ion-button color="success" slot="end" (click)="openModifyDeviceModal(device)">Modifier</ion-button>
+          <ion-modal trigger="modify-device">
+            <ng-template>
+              <app-modify-device-form></app-modify-device-form>
+            </ng-template>
+          </ion-modal>
+          <ion-button color="danger" slot="end" (click)="confirmDeleteDevice(device.id)">Supprime</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-content>
+  <ion-fab slot="fixed" horizontal="center" vertical="bottom">
+    <ion-fab-button id="add-device">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal trigger="add-device">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <app-add-device-form></app-add-device-form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

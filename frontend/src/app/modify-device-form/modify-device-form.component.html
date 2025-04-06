@@ -1,0 +1,22 @@
+<ion-content>
+  <form (ngSubmit)="updateDevice()">
+    <ion-item>
+      <ion-label position="floating">Latitude</ion-label>
+      <ion-input [(ngModel)]="device.latitude" name="latitude" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Longitude</ion-label>
+      <ion-input [(ngModel)]="device.longitude" name="longitude" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Target</ion-label>
+      <ion-input [(ngModel)]="device.target" name="target" required></ion-input>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="block" type="submit">Save Changes</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
