@@ -96,6 +96,6 @@ Higher transmission frequency increases precision but reduces autonomy.
 ```
 /backend       → Flask API and database models
 /frontend      → Ionic Angular application
-/visualization → Power BI dashboards (optional links or documentation)
+/visualization → Power BI dashboards
 /docs          → System architecture, diagrams, and presentations
 ```
