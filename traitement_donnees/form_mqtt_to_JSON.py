@@ -4,7 +4,7 @@ from datetime import datetime
 import subprocess
 
 app_id = 'projet-lorawan-mbm'
-access_key = 'NNSXS.CH66XYP2JF3STEKSWTW7SKEUGGWLH45DLF7UWFY.2KRVSDDTOP4ZDZ3XZZ4N3DLAEA5TO66TM7MGXDJSUPVJF3G7UOMA'
+access_key = '[API Key]'
 
 def on_connect(client, userdata, flags, rc):
     print(f"Connecté au code de résultat {rc}")
